@@ -17,17 +17,17 @@ public:
                 int sum = nums[l] + nums[r];
                 if(sum > target) r--;
                 else if(sum < target) l++;
-                else 
+                else
                 {
                     vector<int>tripset = {nums[i],nums[l],nums[r]};
                     ans.push_back(tripset);
-                    while(l < r && nums[l+1] == tripset[1]) l++;
-                    while(l < r && nums[r-1] == tripset[2]) r--;
-                    int val = tripset[0];
-                    while(i < nums.size()-2 && nums[i+1] == nums[i]) i++;
+                    while(l<r && nums[l+1] == tripset[1]) l++;
+                    while(l<r && nums[r-1] == tripset[2]) r--;
+                    r--;
+                    l++;
+                    while(i<nums.size()-2 && nums[i+1] == tripset[0]) i++;
                 }
             }
-           
         }
         return ans;
     }
